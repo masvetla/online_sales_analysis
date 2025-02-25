@@ -8,8 +8,25 @@ def main():
     manager = ProductManager()
 
     manager.add_product(Product("MacBook", 1200.99, 5))
-    manager.add_product(Product("Monitor2", 25.50, 15))
     manager.add_product(Product("Mechanic Keyboard", 45.00, 10))
+    manager.add_product(Product("Monitor2", 250.75, 7))
+
+    cart = Cart()
+
+    products = manager.products  
+    for _ in range(3):
+        product = random.choice(products)  #
+        max_quantity = min(product.quantity, 3)  
+        if max_quantity > 0:  
+            quantity = random.randint(1, max_quantity)  #
+            cart.add_to_cart(product, quantity)
+
+
+    print("\nCart Contents:")
+    cart.display_cart()
+
+    cart_total = cart.calculate_total()
+    print(f"\nTotal Cart Value: ${cart_total:.2f}")
     
        
     
