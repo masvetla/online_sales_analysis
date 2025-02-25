@@ -17,6 +17,23 @@ def main():
 
     total_value = manager.total_inventory_value()
     print(f"\nTotal Inventory Value: ${total_value:.2f}")
+
+    cart = Cart()
+
+    products = manager.products  
+    for _ in range(3):
+        product = random.choice(products)  #
+        max_quantity = min(product.quantity, 3)  
+        if max_quantity > 0:  
+            quantity = random.randint(1, max_quantity)  #
+            cart.add_to_cart(product, quantity)
+
+
+    print("\nCart Contents:")
+    cart.display_cart()
+
+    cart_total = cart.calculate_total()
+    print(f"\nTotal Cart Value: ${cart_total:.2f}")
     
     
 if __name__ == "__main__":
