@@ -27,3 +27,14 @@ if __name__ == "__main__":
     manager.add_product("Telefon", 500, 10)
     manager.display_all_products()
     manager.totatotal_inventory_value()  
+
+
+
+    def remove_product_by_name(self, name):
+        """Uklanja proizvod sa zadatim imenom, ako postoji."""
+        self.products = [p for p in self.products if p.name != name]
+
+# Primer korišćenja:
+# manager = ProductManager()
+# manager.add_product(Product("Laptop", 1000))
+# manager.remove_product_by_name("Laptop")
